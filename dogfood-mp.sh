@@ -30,20 +30,20 @@ trap cleanup EXIT
 PROGNAME="$(basename $0)"
 case "$1" in
     --install)
+        echo "### Launching now in background (screen)"
+        screen -S $PROGNAME -d -m $(pwd)/$PROGNAME --run
         crontab -l 2>/dev/null |grep -v "$PROGNAME --run" >"$TEMPFILE" || true
         echo "$CRON_SCHEDULE screen -S $PROGNAME -d -m $(pwd)/$PROGNAME --run" \
             >> "$TEMPFILE"
         crontab "$TEMPFILE"
-        echo "=== Installed into crontab: ==="
+        echo "### Installed into crontab:"
         crontab -l
-        echo "=== Launching now in background (screen) ==="
-        screen -S $PROGNAME -d -m $(pwd)/$PROGNAME --run
         exit 0
     ;;
     --uninstall)
         crontab -l 2>/dev/null |grep -v "$PROGNAME --run" >"$TEMPFILE" || true
         crontab "$TEMPFILE"
-        echo "=== Removed from crontab: ==="
+        echo "### Removed from crontab:"
         crontab -l
         exit 0
     ;;
