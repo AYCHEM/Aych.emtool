@@ -4,6 +4,8 @@
 #
 #    dogfood-mp.sh --install     # Install into crontab, restarts 4x/day
 #    dogfood-mp.sh --uninstall   # Remove from user's crontab
+#    dogfood-mp.sh --status      # Is it running? Is it installed?
+#    dogfood-mp.sh --resume      # Connect to the running instance
 #    dogfood-mp.sh --run         # Actualy run the script
 #
 # See the end of the file for what the script actually does.
@@ -47,11 +49,22 @@ case "$1" in
         crontab -l
         exit 0
     ;;
+    --status)
+        crontab -l 2>/dev/null |grep -c "$PROGNAME --run" >/dev/null \
+          && echo "Correctly installed in crontab" \
+          || echo "Not installed in crontab"
+        screen -list $PROGNAME
+        exit 0
+    ;;
+    --resume)
+        screen -r $PROGNAME
+        exit 0
+    ;;
     --run)
     ;;
     *)
         sed -e '1,1 d; /^####/,$ d' < $0
-        echo "# Usage: $0 [--install|--uninstall|--run]"
+        echo "# Usage: $0 [--run|--install|--uninstall|--status|--resume]"
         echo "#"
         exit 1
     ;;
