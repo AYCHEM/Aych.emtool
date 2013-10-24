@@ -1,17 +1,17 @@
 #!/bin/bash
 #
-# This is the maipile dogfooding script. It can be used in three ways:
+# This is the Mailpile dogfooding script. It can be used in these ways:
 #
 #    dogfood-mp.sh --install     # Install into crontab, restarts 4x/day
 #    dogfood-mp.sh --uninstall   # Remove from user's crontab
 #    dogfood-mp.sh --status      # Is it running? Is it installed?
 #    dogfood-mp.sh --resume      # Connect to the running instance
-#    dogfood-mp.sh --run         # Actualy run the script
+#    dogfood-mp.sh --run         # Actually run the script
 #
 # See the end of the file for what the script actually does.
 #
 # The installer leaves Mailpile running in a screen session, use
-# `screen --list` to find it, or `screen -r dogfood-mp.sh` to connect
+# `dogfood-mp.sh --status` to find it, or `dogfood-mp.sh --resume` to connect
 # to it and interact on the CLI.
 #
 # The program assumes you have git cloned the Mailpile repo into a folder
