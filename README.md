@@ -7,31 +7,22 @@ This repo is a catch all for miscellaneous fun tools to work on, deploy and futz
 Dog Fooding Mailpile
 --------------------
 
-In order to start dog fooding, we wanted to interact with our team@mailpile.is email 100% from Mailpile.  reated a simple utility that pulls the latest master branch from the Mailpile Github account 4 times per day and then restarts the instance of Mailpile.
-
-In order to use this tool to do this yourself, do the following steps:
-
-**Clone Tools**
-``
-$ git clone https://github.com/mailpile/tools.git
-``
-**Clone Mailpile**
-``
-$ git clone https://github.com/pagekite/Mailpile.git
-``
-
-Then do...
-=======
 In order to start dog fooding, we wanted to interact with our team@mailpile.is
 email 100% from Mailpile.  We created a simple utility that pulls the latest
 master branch from the Mailpile Github account 4 times per day and then
-restarts the instance of Mailpile.
+restarts the instance of Mailpile. 
 
-In order to use this tool to do this yourself, do the following steps:
+This tool DOES NOT setup and configure Mailpile for you, it just keeps it updated with our master branch. So, in order to use this tool to feel the bleeding edge of the Mailpile experience yourself, do the following steps:
+
+### Install Mailpile
 
     # Clone Mailpile into your home directory (location matters!)
     $ cd
     $ git clone https://github.com/pagekite/Mailpile.git
+
+    # Follow the README in the Mailpile repo & make sure you have all the depencies installed
+
+### Install Tools
 
     # Clone tools (you can move to another directory for this)
     $ cd /path/to/wherever/you/keep/tools
