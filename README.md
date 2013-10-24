@@ -25,11 +25,18 @@ In order to use this tool to do this yourself, do the following steps:
     # Try running the dogfood script, see if it works:
     $ ./tools/dogfood-mp.sh --run
 
-If that looks good, you can install the script into your `crontab` so it will
-automatically run in the background and pull down the latest changes and
-restart itself four times a day:
+The final step might fail if you have some missing dependencies. Consult
+the Mailpile installation instructions for hints on how to resolve those.
+
+If Mailpile runs, then you can install the script into your `crontab` so it
+will automatically run in the background and pull down the latest changes
+and restart itself four times a day:
 
     $ ./tools/dogfood-mp.sh --install
 
-That's all folks!
+For more info (uninstallation, connecting to the running Mailpile), ask the
+script itself for help:
 
+    $ ./tools/dogfood-mp.sh --help
+
+That's all folks!
