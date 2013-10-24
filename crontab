@@ -1,4 +1,0 @@
-# This will run the run-mailpile.sh script 4x a day, inside a screen
-# session which can be accessed using screen -r for CLI access.
-# 
-01 00,06,12,18 * * * screen -d -m /home/mailpile/bin/run-mailpile.sh
